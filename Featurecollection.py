@@ -2,7 +2,6 @@ import csv
 from Bio import SeqIO
 
 def cpg_oe(seq):
-    # use RNA-style (T -> U), compute observed/expected CpG
     seq = seq.upper().replace("T", "U")
     L = len(seq)
     if L < 2:
@@ -53,6 +52,6 @@ def extract_features(fasta_file, csv_output):
         writer.writerows(rows)
     print(f"Wrote {len(rows)} rows to {csv_output}")
 
-# ---- run for both datasets ----
+
 extract_features("/content/human_sequences.fasta", "human_seq_features.csv")
 extract_features("/content/insect_sequences.fasta", "insect_seq_features.csv")
